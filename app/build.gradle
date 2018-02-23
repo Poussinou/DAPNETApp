@@ -35,7 +35,13 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'org.osmdroid:osmdroid-android:5.6.5'
+    implementation 'org.mapsforge:mapsforge-core:0.9.1'
+    implementation 'org.mapsforge:mapsforge-map:0.9.1'
+    implementation 'org.mapsforge:mapsforge-map-reader:0.9.1'
+    implementation 'org.mapsforge:mapsforge-themes:0.9.1'
+    implementation 'net.sf.kxml:kxml2:2.3.0'
+    implementation 'org.mapsforge:mapsforge-map-android:0.9.1'
+    implementation 'com.caverock:androidsvg:1.2.2-beta-1'
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:recyclerview-v7:25.4.0'
     compile 'com.android.support:design:25.4.0'
