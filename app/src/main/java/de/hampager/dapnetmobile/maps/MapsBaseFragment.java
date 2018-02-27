@@ -103,7 +103,7 @@ public abstract class MapsBaseFragment extends MapViewerTemplateFragment impleme
     @Override
     protected void createTileCaches() {
         boolean persistent = sharedPreferences.getBoolean(DAPNETApp.SETTING_TILECACHE_PERSISTENCE, true);
-        this.tileCaches.add(AndroidUtil.createTileCache(getActivity(), getPersistableId(),
+        this.tileCaches.add(AndroidUtil.createTileCache(getContext(), getPersistableId(),
                 this.mapView.getModel().displayModel.getTileSize(), this.getScreenRatio(),
                 this.mapView.getModel().frameBufferModel.getOverdrawFactor(), persistent));
     }
@@ -155,13 +155,13 @@ public abstract class MapsBaseFragment extends MapViewerTemplateFragment impleme
     protected void createSharedPreferences() {
         super.createSharedPreferences();
 
-        this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // problem that the first call to getAll() returns nothing, apparently the
         // following two calls have to be made to read all the values correctly
         // http://stackoverflow.com/questions/9310479/how-to-iterate-through-all-keys-of-shared-preferences
         this.sharedPreferences.edit().clear();
-        PreferenceManager.setDefaultValues(getActivity(), R.xml.preferences, true);
+        PreferenceManager.setDefaultValues(getContext(), R.xml.preferences, true);
 
         this.sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
