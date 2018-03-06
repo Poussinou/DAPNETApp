@@ -129,7 +129,7 @@ public abstract class MapViewerTemplateFragment extends Fragment {
      * Creates the shared preferences that are being used to store map view data over
      * activity restarts.
      */
-    protected void createSharedPreferences() {
+    protected void createSharedPreferences()  {
         this.preferencesFacade = new AndroidPreferences(this.getActivity().getSharedPreferences(getPersistableId(), MODE_PRIVATE));
     }
 

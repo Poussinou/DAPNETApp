@@ -165,38 +165,7 @@ public abstract class MapsBaseFragment extends MapViewerTemplateFragment impleme
 
         this.sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
-/*
-    @SuppressWarnings("deprecation")
-    @SuppressLint("InflateParams")
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater factory = LayoutInflater.from(this);
-        switch (id) {
-            case DIALOG_ENTER_COORDINATES:
-                builder.setIcon(android.R.drawable.ic_menu_mylocation);
-                builder.setTitle(R.string.dialog_location_title);
-                final View view = factory.inflate(R.layout.dialog_enter_coordinates, null);
-                builder.setView(view);
-                builder.setPositiveButton(R.string.okbutton, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        double lat = Double.parseDouble(((EditText) view.findViewById(R.id.latitude)).getText()
-                                .toString());
-                        double lon = Double.parseDouble(((EditText) view.findViewById(R.id.longitude)).getText()
-                                .toString());
-                        byte zoomLevel = (byte) ((((SeekBar) view.findViewById(R.id.zoomlevel)).getProgress()) +
-                                SamplesBaseActivity.this.mapView.getModel().mapViewPosition.getZoomLevelMin());
 
-                        SamplesBaseActivity.this.mapView.getModel().mapViewPosition.setMapPosition(
-                                new MapPosition(new LatLong(lat, lon), zoomLevel));
-                    }
-                });
-                builder.setNegativeButton(R.string.cancelbutton, null);
-                return builder.create();
-        }
-        return null;
-    }*/
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -215,43 +184,6 @@ public abstract class MapsBaseFragment extends MapViewerTemplateFragment impleme
         }
         return false;
     }
-/*
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onPrepareDialog(int id, final Dialog dialog) {
-        if (id == DIALOG_ENTER_COORDINATES) {
-            MapViewPosition currentPosition = MapsBaseFragment.this.mapView.getModel().mapViewPosition;
-            LatLong currentCenter = currentPosition.getCenter();
-            EditText editText = (EditText) dialog.findViewById(R.id.latitude);
-            editText.setText(Double.toString(currentCenter.latitude));
-            editText = (EditText) dialog.findViewById(R.id.longitude);
-            editText.setText(Double.toString(currentCenter.longitude));
-            SeekBar zoomlevel = (SeekBar) dialog.findViewById(R.id.zoomlevel);
-            zoomlevel.setMax(currentPosition.getZoomLevelMax() - currentPosition.getZoomLevelMin());
-            zoomlevel.setProgress(MapsBaseFragment.this.mapView.getModel().mapViewPosition.getZoomLevel()
-                    - currentPosition.getZoomLevelMin());
-            final TextView textView = (TextView) dialog.findViewById(R.id.zoomlevelValue);
-            textView.setText(String.valueOf(zoomlevel.getProgress()));
-            zoomlevel.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    textView.setText(String.valueOf(progress));
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar arg0) {
-                    // nothing
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar arg0) {
-                    // nothing
-                }
-            });
-        } else {
-            super.onPrepareDialog(id, dialog);
-        }
-    }*/
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences preferences, String key) {

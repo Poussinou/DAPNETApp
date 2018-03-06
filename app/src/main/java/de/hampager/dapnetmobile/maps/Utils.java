@@ -100,6 +100,7 @@ public final class Utils {
                     Toast.makeText(c,
                             "The Marker was tapped " + geoPoint.toString(),
                             Toast.LENGTH_SHORT).show();
+
                     return true;
                 }
                 return false;
